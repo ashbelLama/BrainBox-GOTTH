@@ -1,7 +1,7 @@
 run: build
 	@./bin/app
 
-dev: css-watch
+dev:
 	@air
 
 build:
@@ -9,3 +9,7 @@ build:
 
 css-watch:
 	@npx tailwindcss -i ./view/css/app.css -o public/styles.css --watch
+
+templ-watch:
+	@templ generate --watch --proxy=http://localhost:3000
+	# @templ generate --watch
