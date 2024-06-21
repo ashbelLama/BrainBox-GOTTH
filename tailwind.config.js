@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./view/**/*.templ"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'admin-image': "url('/public/images/abstract-paper-background/509434-PITAEO-611.eps')"
+      }
+    },
   },
   plugins: [],
 }
