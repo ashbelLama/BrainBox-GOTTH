@@ -1,19 +1,46 @@
 package controller
 
 import (
+	"fmt"
+	"net/http"
+	"strings"
+
 	"github.com/ashbelLama/brainbox/view/admin"
 	"github.com/gin-gonic/gin"
 )
 
-func AdminController(ctx *gin.Context) {
+type content struct {
+	Username string `json:"username" binding:"required"`
+	Password string `json:"password" binding:"required"`
+}
+
+func AdminGETController(ctx *gin.Context) {
 	admin.Home().Render(ctx.Request.Context(), ctx.Writer)
 }
 
-// func writeImage(ctx *gin.Context, img *image.Image) {
-// 	buffer := new(bytes.Buffer)
-// 	if err := jpeg.Encode(buffer, *img, nil); err != nil {
-// 		log.Println("unable to encode image")
-// 	}
+func AdminPOSTController(ctx *gin.Context) {
+	if ctx.Request.Method == http.MethodPost {
+		err := ctx.Request.ParseForm()
+		if err != nil {
+			http.Error(ctx.Writer, "internal server error", http.StatusInternalServerError)
+			return
+		}
+	}
 
-// 	ctx.Header().Set("Content-Type", "image/jpeg")
-// }
+	username := strings.TrimSpace(ctx.PostForm("username"))
+	password := ctx.PostForm("password")
+
+	if verifyLogin(username, password) {
+		ctx.Header("HX-Redirect", "/admin/dashboard")
+	} else {
+		fmt.Println("invalid username or password")
+	}
+
+}
+
+func verifyLogin(username, password string) bool {
+	if username == "admin" && password == "password" {
+		return true
+	}
+	return false
+}

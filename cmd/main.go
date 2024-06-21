@@ -14,7 +14,13 @@ func main() {
 		controller.LayoutController(ctx)
 	})
 	router.GET("/admin", func(ctx *gin.Context) {
-		controller.AdminController(ctx)
+		controller.AdminGETController(ctx)
+	})
+	router.POST("/admin", func(ctx *gin.Context) {
+		controller.AdminPOSTController(ctx)
+	})
+	router.GET("/admin/dashboard", func(ctx *gin.Context) {
+		controller.AdminDashboardController(ctx)
 	})
 
 	router.Run("localhost:3000")
