@@ -2,10 +2,25 @@ package home
 
 import "github.com/ashbelLama/brainbox/view/layout"
 
-templ home() {
+templ Home() {
 	@layout.Base() {
-		<div>
-			Hello there
-		</div>
+		@bubbles()
+		@adder()
 	}
+}
+
+templ bubbles() {
+	<div hx-get="/bubble" hx-trigger="load" hx-target="#count">
+		<div>
+			Current count: <span id="count"></span>
+		</div>
+	</div>
+}
+
+templ adder() {
+	<div>
+		<div hx-get="/inc-count" hx-trigger="click" hx-target="#count">
+			ANOTHER INCREASE
+		</div>
+	</div>
 }

@@ -1,1 +1,3 @@
-<div>Hello there</div>
+ 
+<div hx-get=\"/bubble\" hx-trigger=\"load\" hx-target=\"#count\"><div>Current count: <span id=\"count\"></span></div></div>
+<div><div hx-get=\"/inc-count\" hx-trigger=\"click\" hx-target=\"#count\">ANOTHER INCREASE</div></div>
