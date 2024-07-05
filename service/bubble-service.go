@@ -33,18 +33,17 @@ func GetBubble() ([]byte, error) {
 		log.Fatal(err)
 	}
 
-	results, err := database.DB.Query("SELECT title, description FROM bubble")
+	results, err := database.DB.Query("SELECT id, title, description FROM bubble")
 	if err != nil {
 		return nil, err
 	}
 
 	for results.Next() {
 		var bubble model.Bubble
-		err = results.Scan(&bubble.Title, &bubble.Description)
+		err = results.Scan(&bubble.Id, &bubble.Title, &bubble.Description)
 		if err != nil {
 			log.Fatal(err)
 		}
-
 		// Marshal bubble struct into json
 		jsonData, err := json.Marshal(bubble)
 		if err != nil {
