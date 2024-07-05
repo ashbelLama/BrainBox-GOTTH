@@ -64,7 +64,7 @@ func TestGetBubble(t *testing.T) {
 		}
 		fmt.Println("check table contents: test passed")
 	})
-	t.Run("check seeded contents", func(t *testing.T) {
+	t.Run("check get bubble", func(t *testing.T) {
 		sample := model.Bubble{
 			Id:          1,
 			Title:       "test",
@@ -78,9 +78,9 @@ func TestGetBubble(t *testing.T) {
 		expectedJSON, _ := json.Marshal(sample)
 		if !reflect.DeepEqual(expectedJSON, got) {
 			t.Fatalf("\nexpected %s,\ngot %v", string(expectedJSON), got)
-			fmt.Println("check seeded contents: test failed")
+			fmt.Println("check get bubble: test failed")
 		}
-		fmt.Println("check seeded contents: test passed")
+		fmt.Println("check get bubble: test passed")
 	})
 	t.Run("check post bubble", func(t *testing.T) {
 		sample := model.Bubble{

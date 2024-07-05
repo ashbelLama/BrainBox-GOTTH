@@ -1,0 +1,10 @@
+{
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.localEchoStyle": "dim",
+    "editor.fontFamily": "Hack Nerd Font",
+    "editor.fontSize": 15,
+    "editor.fontLigatures": true,
+    "editor.hideCursorInOverviewRuler": true,
+    "workbench.productIconTheme": "bongocat",
+}
