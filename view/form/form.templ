@@ -1,0 +1,29 @@
+package form
+
+templ Form() {
+<div class="h-screen flex items-center justify-center">
+    <div class="border-black border rounded-lg p-10" style="width: 500px">
+        <form>
+            <div class="mb-5">
+                <label for="title" class="block mb-2 text-2xl font-normal text-gray-900 dark:text-black">
+                    Title
+                </label>
+                <input name="title" type="text" id="title"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="title for brainbox" required />
+            </div>
+            <div class="mb-5">
+                <label for="description"
+                    class="block mb-2 text-2xl font-normal text-gray-900 dark:text-black">Description</label>
+                <textarea name="description" id="description" cols="50" rows="8"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 overflow-hidden"
+                    style="resize: none;"
+                    placeholder="description for brainbox" required />
+            </div>
+            <button type="submit"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-normal rounded-lg text-base w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                hx-post="/bubble" hx-trigger="click">Save</button>
+        </form>
+    </div>
+</div>
+}

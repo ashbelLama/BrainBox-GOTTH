@@ -23,6 +23,9 @@ func main() {
 		v1.POST("/bubble", func(ctx *gin.Context) {
 			controller.PostBubbleController(ctx)
 		})
+		v1.GET("/form", func(ctx *gin.Context) {
+			controller.FormController(ctx)
+		})
 	}
 
 	router.Run("localhost:3000")
